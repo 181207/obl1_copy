@@ -37,31 +37,11 @@ public class Webshop extends HttpServlet {
         HttpSession s = request.getSession(false);
         Cart cart = (Cart) s.getAttribute("cart");
 
-
-
-        response.setContentType("text/html; charset=ISO-8859-1");
-
-        PrintWriter out = response.getWriter();
-
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<meta charset=\"ISO-8859-1\">");
-        out.println("<title>Login</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("       <h1>Min handleliste</h1>");
-        out.println("<form action=\"\" method=\"post\">");
-        out.println("       <input type=\"submit\" value=\"Legg til\" name=\"add\" />");
-        out.println("       <input type=\"text\" name=\"searchField\" /></br>");
-        out.println("</form>");
-
-        for (int i=0; i<cart.getItems().size();i++) {
-            out.println("<form action=\"remove?item="+ i + "\" method=\"post\">");
-            out.println("       <input type=\"submit\" value=\"Slett\" />");
-            out.println(        cart.getItems().get(i).getName() + "</br>");
-            out.println("</form>");
-
+        if (s == null) {
+            response.sendRedirect("login?requiresLogin");
+        } else {
+            request.getRequestDispatcher("WEB-INF/webshop.jsp").forward(
+                    request, response);
         }
 
     }

@@ -20,7 +20,7 @@ public class RemoveItem extends HttpServlet
     {
 
 // Get the index of the item to remove.
-        int itemIndex = Integer.parseInt(request.getParameter("item"));
+        //int itemIndex = Integer.parseInt(request.getParameter("item"));
 
         HttpSession s = request.getSession();
 
@@ -35,7 +35,7 @@ public class RemoveItem extends HttpServlet
             s.setAttribute("cart", cart);
         }
 
-        cart.removeItem(itemIndex);
+        cart.removeItem(request.getParameter("item"));
 
 // Now display the cart and allow the user to check out or order more items.
         response.sendRedirect(response.encodeRedirectURL("webshop"));

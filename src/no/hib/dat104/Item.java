@@ -1,6 +1,13 @@
 package no.hib.dat104;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(schema="webshop", name="item")
 public class Item {
+    @Id
     private String name;
     private double price;
 
