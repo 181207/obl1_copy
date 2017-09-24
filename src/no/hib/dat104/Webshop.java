@@ -1,5 +1,9 @@
 package no.hib.dat104;
 
+import no.hib.dat104.no.hib.dat104.data.ICartEAO;
+import no.hib.dat104.no.hib.dat104.data.IItemEAO;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +17,11 @@ import java.io.PrintWriter;
             description = "Hovedside for webshop",
             urlPatterns = "/webshop")
 public class Webshop extends HttpServlet {
+    @EJB
+    private IItemEAO ItemEAO;
+    @EJB
+    private ICartEAO CartEAO;
+
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -7,6 +7,10 @@
         <element id="directory" name="classes">
           <element id="module-output" name="obl1" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="jstl:jstl:1.2" />
+          <element id="library" level="project" name="Hibernate 5.2.11-5.2.11" />
+        </element>
       </element>
     </root>
   </artifact>
