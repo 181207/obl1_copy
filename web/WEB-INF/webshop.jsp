@@ -8,16 +8,11 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
-<html>
-<head>
-    <title>Webshop</title>
-</head>
-<body>
+
 
 <!DOCTYPE html>
-<html>
 <head>
     <meta charset="ISO-8859-1">
     <title>Login</title>
@@ -25,16 +20,14 @@
 <body>
     <h1>Min handleliste</h1>
     <form action="" method="post">
-        <input type="submit" value="Legg til" name="add" />
-        <input type="text" name="searchField" /></br>
+        <input type="submit" value="Legg til" name="add">
+        <input type="text" name="searchField"><br>
     </form>
 
     <c:forEach var="item" items="${cart.items}">
         <form action="remove?item=${fn:escapeXml(item.name)}" method="post">
-            <input type="submit" value="Slett" />
-            <tr><td>${item.name} </td></tr>
-            <tr><td>${fn:escapeXml(item.name)} </td></tr>
+            <input type="submit" value="Slett">
+           ${fn:escapeXml(item.name)}
         </form>
     </c:forEach>
 </body>
-</html>

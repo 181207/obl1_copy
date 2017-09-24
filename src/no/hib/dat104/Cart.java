@@ -1,6 +1,5 @@
 package no.hib.dat104;
 
-import javax.ejb.Stateless;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,12 +9,13 @@ import java.util.List;
 public class Cart {
 
 
-    @OneToMany(mappedBy = "cart")
+//    @OneToMany(mappedBy = "cart")
+    @Transient
     private List<Item> items = new ArrayList<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "item_id")
+    @Column(name = "id")
     private int id;
 //    id = 0;
 

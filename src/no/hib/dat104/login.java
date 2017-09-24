@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 
 @WebServlet(name = "login",
@@ -23,10 +22,9 @@ public class login extends HttpServlet {
                          HttpServletResponse response) throws ServletException, IOException {
 
 
-        boolean invalidPasswordRedirect = request
+        boolean invalidPassRedir = request
                 .getParameter("invalidPassword") != null;
-        request.setAttribute("invalidPasswordRedirect", invalidPasswordRedirect);
-
+        request.setAttribute("invalidPasswordRedirect", invalidPassRedir);
 
         request.getRequestDispatcher("WEB-INF/login.jsp").forward(request,
                 response);

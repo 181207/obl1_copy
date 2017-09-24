@@ -5,6 +5,9 @@ import javax.persistence.*;
 @Entity
 @Table(schema="webshop", name="item")
 public class Item {
+
+    public Item (){}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -16,14 +19,11 @@ public class Item {
     public Item (String name, double price) {
         this.name = name;
         this.price = price;
-        this.id = id;
 
     }
     public Item (String name) {
         this.name = name;
         this.price = 0;
-        this.id = id;
-        id++;
     }
     public String getName() {return name;}
     public void setName(String name) {

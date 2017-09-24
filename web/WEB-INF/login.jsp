@@ -6,23 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 
-<html>
+<!DOCTYPE html>
 <head>
     <title>Login</title>
 </head>
 <body>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-    </head>
-<body>
 <p>
-<c:out value="${invalidPasswordRedirect eq true ? 'Passordet du gav inn var feil. Prøv igjen:' : 'Gi inn passord:' }" />
+<c:out value="${requestScope.invalidPasswordRedirect eq true ? 'Passordet du gav inn var feil. Prøv igjen:' : 'Gi inn passord:' }" />
 </p>
 
 <form action="login" method="post">
@@ -34,6 +27,3 @@
           </fieldset>
     </form>
 </body>
-</html>
-</body>
-</html>
